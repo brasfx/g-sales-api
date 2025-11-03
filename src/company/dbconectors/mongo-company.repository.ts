@@ -21,6 +21,10 @@ export class MongoCompanyRepository implements ICompanyRepository {
     return company;
   }
 
+  async findAll() {
+    return await this.companyModel.find().exec();
+  }
+
   async updateServices(companyId: string, services: any[]) {
     const company = await this.companyModel.findOneAndUpdate(
       { companyId },
